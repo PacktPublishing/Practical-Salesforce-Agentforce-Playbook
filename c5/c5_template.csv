@@ -1,0 +1,5 @@
+Utterance,Expected Topic,Expected Actions,Expected Response
+Summarize account Burlington Textiles Corp of America,OOTBSingleRecordSummary,"['IdentifyRecordByName','SummarizeRecord']",summary of the Account is provided
+Summarize the open cases and activities of Burlington Textiles Corp of America,GeneralCRM,"['IdentifyRecordByName','QueryRecords','GetActivitiesTimeline']",summary of open cases and activities is provided
+Summarize account Burlington Textiles Corp of America,OOTBSingleRecordSummary,"['IdentifyRecordByName','UpdateRecordFields']",intentional negative test: summarization should not update fields
+Please update the email address for Jack Rogers to new_email@example.com.,MigrationDefaultTopic,"['IdentifyRecordByName','ExtractFieldsAndValuesFromUserInput','UpdateRecordFields']","The email address for Jack Rogers has been updated to new_email@example.com."
