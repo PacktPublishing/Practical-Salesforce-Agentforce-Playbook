@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>Help users book rooms.</description>
+    <localActionLinks>
+        <genAiFunctionName>AnswerQuestionsWithKnowledge_16jgL000000uMYv</genAiFunctionName>
+    </localActionLinks>
+    <localTopicLinks>
+        <genAiPluginName>Meeting_Room_Availability_16jgL000000uMYv</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Room_Booking_16jgL000000uMYv</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Room_Booking_Policy_Questions_16jgL000000uMYv</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>Room_Booking_Policy_Questions_16jgL000000uMYv</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Handles inquiries related to policies for room booking, including terms, conditions, and guidelines.</description>
+        <developerName>Room_Booking_Policy_Questions_16jgL000000uMYv</developerName>
+        <genAiPluginInstructions>
+            <description>Provide clear and concise answers to questions about room booking policies.</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 1</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user asks about cancellation policies, explain the relevant terms based on the provided information.</description>
+            <developerName>instruction_2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 2</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Redirect the user to a human agent if their inquiry extends beyond policy questions or requires specific booking actions.</description>
+            <developerName>instruction_3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 3</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Clarify any ambiguous questions by asking for more details about the policy-related inquiry.</description>
+            <developerName>instruction_4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 4</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Room_Booking_Policy_Q_A_179gL000001BKKb</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Room_Booking_Policy_Q_A_179gL000001BKKb</fullName>
+            <description>Answer from the data library</description>
+            <developerName>Room_Booking_Policy_Q_A_179gL000001BKKb</developerName>
+            <invocationTarget>Room_Booking_Policy_Q_A</invocationTarget>
+            <invocationTargetType>generatePromptResponse</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Room_Booking_Policy_Q_A</localDeveloperName>
+            <masterLabel>Room Booking Policy Q&amp;A</masterLabel>
+            <progressIndicatorMessage>Loading</progressIndicatorMessage>
+        </localActions>
+        <localDeveloperName>Room_Booking_Policy_Questions</localDeveloperName>
+        <masterLabel>Room Booking Policy Questions</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>My job is only to address questions about room booking policies, including terms, conditions, cancellation rules, and related guidelines. I will not assist with booking rooms or handling payment-related issues.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Meeting_Room_Availability_16jgL000000uMYv</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Facilitates real-time checks on meeting room availability by retrieving and presenting up to three earliest options based on user-provided criteria such as date, time, and location. Provides alternative suggestions for the next business day if no immediate options are available and seeks clarification when user input is incomplete.</description>
+        <developerName>Meeting_Room_Availability_16jgL000000uMYv</developerName>
+        <genAiPluginInstructions>
+            <description>Collect date, start time, and duration, and optionally name of room</description>
+            <developerName>instructions_0_1765367903758</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1765367903758</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Look up service resource based on name of room or get all. Also look up the Work Type Group named &quot;Room Booking&quot;. Use the Service Territory Id from the service resource or query all service territories.</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 1</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Call FindRoomSlots for Scheduler with the Work Type Group + Territory + requested window. Go through all relevant service territories</description>
+            <developerName>instruction_2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 2</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Return up to three earliest options as “Room • Start–End • Territory”. If none, search the next business day and present two options.</description>
+            <developerName>instruction_3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 3</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user provides incomplete information, make your best guess.</description>
+            <developerName>instruction_4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 4</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Find_room_slots_179gL000000ixsP</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>QueryRecords_179gL000000ixsP</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Find_room_slots_179gL000000ixsP</fullName>
+            <description>Use this action to find slots for room bookings</description>
+            <developerName>Find_room_slots_179gL000000ixsP</developerName>
+            <invocationTarget>RoomSlotsAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Find_room_slots</localDeveloperName>
+            <masterLabel>Find room slots</masterLabel>
+            <progressIndicatorMessage>Findings slots</progressIndicatorMessage>
+        </localActions>
+        <localActions>
+            <fullName>QueryRecords_179gL000000ixsP</fullName>
+            <description>Finds and retrieves Salesforce CRM records based on user input and specific conditions, such as field values. This action automatically identifies the correct records and object type. e.g. &apos;Find all open opportunities created in the last 5 days sorted by created date.&apos;</description>
+            <developerName>QueryRecords_179gL000000ixsP</developerName>
+            <invocationTarget>queryRecords</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>QueryRecords</localDeveloperName>
+            <masterLabel>Query Records</masterLabel>
+            <source>EmployeeCopilot__QueryRecords</source>
+        </localActions>
+        <localDeveloperName>Meeting_Room_Availability</localDeveloperName>
+        <masterLabel>Meeting Room Availability</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is only to check the availability of meeting rooms modeled as service resources and provide accurate information to the user.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Room_Booking_16jgL000000uMYv</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Manages the end-to-end process of booking a meeting room by confirming user preferences, verifying availability, and scheduling a single appointment. Resolves conflicts by re-querying availability and offering alternatives, while ensuring users receive a detailed confirmation of the booked room and appointment details.</description>
+        <developerName>Room_Booking_16jgL000000uMYv</developerName>
+        <genAiPluginInstructions>
+            <description>Confirm the chosen room + time.</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 1</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Call Book Room Appointment with the slot and the selected Service Resource (room). &quot;Always use the 60 Minute Booking&quot; work type id not the work type group id. Query if needed. Always use the Serviceterritoryid of the room being booked. Always query  accounts with a limit of 1 and use the account id of the returned record for the parentid.</description>
+            <developerName>instruction_2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 2</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If booking fails due to a conflict, re‑query time slots for the same window and present two alternatives.</description>
+            <developerName>instruction_3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 3</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Summarize: “Booked [Room] on [Date] [Start–End] in [Building]; reference [Appointment Number/Id].”</description>
+            <developerName>instruction_4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 4</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If no rooms are available, suggest alternative dates or options.</description>
+            <developerName>instruction_5</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 5</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>QueryRecords_179gL000000ixvd</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Book_Room_Appointment_179gL000000ixvd</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Book_Room_Appointment_179gL000000ixvd</fullName>
+            <description>Create a ServiceAppointment and AssignedResource for a room slot</description>
+            <developerName>Book_Room_Appointment_179gL000000ixvd</developerName>
+            <invocationTarget>RoomBookingAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Book_Room_Appointment</localDeveloperName>
+            <masterLabel>Book Room Appointment</masterLabel>
+            <progressIndicatorMessage>Creating appointment</progressIndicatorMessage>
+        </localActions>
+        <localActions>
+            <fullName>QueryRecords_179gL000000ixvd</fullName>
+            <description>Finds and retrieves Salesforce CRM records based on user input and specific conditions, such as field values. This action automatically identifies the correct records and object type. e.g. &apos;Find all open opportunities created in the last 5 days sorted by created date.&apos;</description>
+            <developerName>QueryRecords_179gL000000ixvd</developerName>
+            <invocationTarget>queryRecords</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>QueryRecords</localDeveloperName>
+            <masterLabel>Query Records</masterLabel>
+            <source>EmployeeCopilot__QueryRecords</source>
+        </localActions>
+        <localDeveloperName>Room_Booking</localDeveloperName>
+        <masterLabel>Room Booking</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is only to assist the user in booking a room by identifying their requirements, checking availability, and confirming the reservation. Create a single appointment for a room only.</scope>
+    </localTopics>
+    <masterLabel>Room Booking Agent</masterLabel>
+    <plannerActions>
+        <fullName>AnswerQuestionsWithKnowledge_16jgL000000uMYv</fullName>
+        <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+        <developerName>AnswerQuestionsWithKnowledge_16jgL000000uMYv</developerName>
+        <invocationTarget>streamKnowledgeSearch</invocationTarget>
+        <invocationTargetType>standardInvocableAction</invocationTargetType>
+        <isConfirmationRequired>false</isConfirmationRequired>
+        <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+        <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+        <masterLabel>Answer Questions with Knowledge</masterLabel>
+        <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+        <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+    </plannerActions>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__Messaging</surface>
+        <surfaceType>Messaging</surfaceType>
+    </plannerSurfaces>
+    <plannerType>AiCopilot__ReAct</plannerType>
+</GenAiPlannerBundle>

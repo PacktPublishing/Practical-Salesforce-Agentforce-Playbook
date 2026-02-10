@@ -1,0 +1,49 @@
+{
+  "required" : [ "d_end", "serviceTerritoryId", "start", "workTypeGroupId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "accountId" : {
+      "title" : "accountId",
+      "description" : "Salesforce ID",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "d_end" : {
+      "title" : "d_end",
+      "description" : "Date time",
+      "lightning:type" : "lightning__dateTimeStringType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "schedulingPolicyId" : {
+      "title" : "schedulingPolicyId",
+      "description" : "Salesforce ID",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "serviceTerritoryId" : {
+      "title" : "serviceTerritoryId",
+      "description" : "Salesforce ID",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "start" : {
+      "title" : "start",
+      "description" : "Date time",
+      "lightning:type" : "lightning__dateTimeStringType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "workTypeGroupId" : {
+      "title" : "workTypeGroupId",
+      "description" : "Salesforce ID",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
